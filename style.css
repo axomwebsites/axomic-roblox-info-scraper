@@ -10,6 +10,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 20px;
+    transition: background 0.3s, color 0.3s;
 }
 .container {
     max-width: 900px;
@@ -19,12 +20,20 @@ body {
     box-shadow: 0 8px 30px rgba(0,0,0,0.12);
     padding: 24px 20px 40px;
     margin: 0 auto;
+    transition: background 0.3s, border-color 0.3s;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 28px;
 }
 header .logo {
     display: flex;
     align-items: center;
     gap: 14px;
-    margin-bottom: 28px;
 }
 .robloxicon {
     width: 48px;
@@ -38,6 +47,19 @@ header .logo {
     letter-spacing: -0.3px;
     line-height: 1.2;
 }
+.header-controls select {
+    padding: 8px 14px;
+    border-radius: 30px;
+    border: 2px solid #ddd;
+    background: #fafafa;
+    font-size: 0.9rem;
+    outline: none;
+    cursor: pointer;
+    transition: border 0.2s;
+}
+.header-controls select:focus {
+    border-color: #cc0000;
+}
 @media (max-width: 480px) {
     .title {
         font-size: 1.2rem;
@@ -45,6 +67,10 @@ header .logo {
     .robloxicon {
         width: 38px;
         height: 38px;
+    }
+    header {
+        flex-direction: column;
+        align-items: stretch;
     }
 }
 .searchsection {
@@ -114,47 +140,230 @@ header .logo {
     line-height: 1.6;
     color: #1e1e1e;
     overflow-x: auto;
-    white-space: pre-wrap;
     word-wrap: break-word;
+    transition: background 0.3s, border-color 0.3s, color 0.3s;
 }
-.resultcontent .sectiontitle {
+.sectionwrap {
+    margin-top: 16px;
+    border-bottom: 1px solid #e9ecf0;
+    padding-bottom: 8px;
+}
+.sectionwrap:first-of-type {
+    margin-top: 0;
+}
+.sectionheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 6px 0;
+    user-select: none;
     font-weight: 700;
-    font-size: 1.1rem;
-    margin-top: 18px;
-    margin-bottom: 6px;
+    font-size: 1.05rem;
     color: #111;
-    border-bottom: 2px solid #cc0000;
-    padding-bottom: 4px;
+    transition: color 0.2s;
 }
-.resultcontent .subsection {
-    margin-left: 12px;
-    margin-top: 6px;
+.sectionheader:hover {
+    color: #cc0000;
 }
-.resultcontent .item {
+.sectionheader .toggleicon {
+    font-size: 1.2rem;
+    transition: transform 0.25s;
+}
+.sectionheader .toggleicon.closed {
+    transform: rotate(-90deg);
+}
+.sectionbody {
+    padding-left: 12px;
+    padding-top: 6px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    max-height: 2000px;
+}
+.sectionbody.closed {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.sectionbody .item {
     margin-left: 20px;
 }
-.resultcontent .label {
+.sectionbody .label {
     font-weight: 600;
     color: #333;
 }
-.resultcontent .value {
-    color: #1a1a1a;
-}
-.resultcontent .errortext {
+.sectionbody .errortext {
     color: #cc0000;
 }
+.creditsection {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #e9ecf0;
+    text-align: center;
+}
+.credittext {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+.socialbuttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.socialbtn {
+    display: inline-block;
+    padding: 10px 28px;
+    border-radius: 40px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    transition: opacity 0.2s, transform 0.1s;
+}
+.socialbtn:hover {
+    opacity: 0.85;
+    transform: scale(1.02);
+}
+.socialbtn.youtube {
+    background: #ff0000;
+}
+.socialbtn.discord {
+    background: #5865f2;
+}
+.loadingoverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(4px);
+}
+.loadingoverlay.hidden {
+    display: none;
+}
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(255,255,255,0.3);
+    border-top: 6px solid #cc0000;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+.loadingtext {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-top: 20px;
+    letter-spacing: 0.5px;
+}
+.theme-dark {
+    background: #1e1e1e;
+}
+.theme-dark .container {
+    background: #2c2c2c;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+.theme-dark .title {
+    color: #f0f0f0;
+}
+.theme-dark .resultcontent {
+    background: #333;
+    border-color: #555;
+    color: #e0e0e0;
+}
+.theme-dark .sectionheader {
+    color: #eee;
+}
+.theme-dark .sectionheader:hover {
+    color: #ff6666;
+}
+.theme-dark .sectionwrap {
+    border-bottom-color: #555;
+}
+.theme-dark .label {
+    color: #ccc;
+}
+.theme-dark .statusmsg {
+    color: #aaa;
+}
+.theme-dark .credittext {
+    color: #aaa;
+}
+.theme-dark .header-controls select {
+    background: #444;
+    color: #eee;
+    border-color: #666;
+}
+.theme-dark #usernameinput {
+    background: #3a3a3a;
+    color: #eee;
+    border-color: #666;
+}
+.theme-dark #usernameinput:focus {
+    border-color: #cc0000;
+    background: #444;
+}
+.theme-blue {
+    background: #d6eaf8;
+}
+.theme-blue .container {
+    background: #ebf5fb;
+}
+.theme-blue .title {
+    color: #1a5276;
+}
+.theme-blue .resultcontent {
+    background: #d4e6f1;
+    border-color: #a9cce3;
+}
+.theme-blue .sectionheader {
+    color: #1a5276;
+}
+.theme-blue .sectionheader:hover {
+    color: #cc0000;
+}
+.theme-blue .sectionwrap {
+    border-bottom-color: #a9cce3;
+}
+.theme-blue .label {
+    color: #2c3e50;
+}
+.theme-blue .statusmsg {
+    color: #2c3e50;
+}
+.theme-blue .credittext {
+    color: #2c3e50;
+}
+.theme-blue .header-controls select {
+    background: #d4e6f1;
+    border-color: #a9cce3;
+    color: #1a5276;
+}
+.theme-blue #usernameinput {
+    background: #d4e6f1;
+    border-color: #a9cce3;
+    color: #1a5276;
+}
+.theme-blue #usernameinput:focus {
+    border-color: #cc0000;
+}
 @media (max-width: 480px) {
-    .container {
-        padding: 16px 12px 30px;
-    }
-    #scrapebtn {
-        width: 100%;
-        justify-content: center;
-    }
-    .inputgroup {
+    .socialbuttons {
         flex-direction: column;
+        align-items: center;
     }
-    #usernameinput {
-        width: 100%;
+    .socialbtn {
+        width: 80%;
     }
-      }
+}
