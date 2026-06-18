@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>Axomic - Roblox Info Scraper</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg class="robloxicon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="80" height="80" rx="16" fill="#cc0000" />
+                    <path d="M30 30h40v8H30v-8zm0 16h40v8H30v-8zm0 16h28v8H30v-8z" fill="white" />
+                    <path d="M66 62h8v8h-8v-8zm0-16h8v8h-8v-8z" fill="white" />
+                </svg>
+                <span class="title">Axomic - Roblox Info Scraper</span>
+            </div>
+        </header>
+
+        <section class="searchsection">
+            <div class="inputgroup">
+                <input type="text" id="usernameinput" placeholder="Enter Roblox username" autocomplete="off" />
+                <button id="scrapebtn">Scrape Info</button>
+            </div>
+            <div id="statusmsg" class="statusmsg"></div>
+        </section>
+
+        <section id="outputsection" class="outputsection hidden">
+            <div id="resultcontent" class="resultcontent"></div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
