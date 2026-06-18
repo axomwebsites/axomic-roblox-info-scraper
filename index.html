@@ -6,16 +6,22 @@
     <title>Axomic - Roblox Info Scraper</title>
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="theme-light">
     <div class="container">
         <header>
             <div class="logo">
-                <svg class="robloxicon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="10" y="10" width="80" height="80" rx="16" fill="#cc0000" />
-                    <path d="M30 30h40v8H30v-8zm0 16h40v8H30v-8zm0 16h28v8H30v-8z" fill="white" />
-                    <path d="M66 62h8v8h-8v-8zm0-16h8v8h-8v-8z" fill="white" />
+                <svg class="robloxicon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="5" y="5" width="90" height="90" rx="18" fill="#cc0000" />
+                    <path d="M30 25 h20 v8 h-12 v10 h8 v8 h-8 v18 h-8 v-18 h-12 v-8 h12 v-10 h-20 v-8 z" fill="white" />
                 </svg>
                 <span class="title">Axomic - Roblox Info Scraper</span>
+            </div>
+            <div class="header-controls">
+                <select id="themeselect" aria-label="theme selector">
+                    <option value="theme-light">Light</option>
+                    <option value="theme-dark">Dark</option>
+                    <option value="theme-blue">Blue</option>
+                </select>
             </div>
         </header>
 
@@ -30,6 +36,23 @@
         <section id="outputsection" class="outputsection hidden">
             <div id="resultcontent" class="resultcontent"></div>
         </section>
+
+        <section id="creditsection" class="creditsection">
+            <div class="credittext">
+                This is a Free,Open-Sourced Roblox Info Scraper by Username.
+                It is made by Axom for multi purposes.
+                If you would like to modify the source, please consider giving credit to Axom.
+            </div>
+            <div class="socialbuttons">
+                <a href="https://youtube.com/@axos0022" target="_blank" rel="noopener" class="socialbtn youtube">YouTube</a>
+                <a href="https://discord.gg/QAhCXgaDZg" target="_blank" rel="noopener" class="socialbtn discord">Discord</a>
+            </div>
+        </section>
+    </div>
+
+    <div id="loadingoverlay" class="loadingoverlay hidden">
+        <div class="spinner"></div>
+        <div class="loadingtext">Scraping Info, Please Wait...</div>
     </div>
 
     <script src="script.js"></script>
