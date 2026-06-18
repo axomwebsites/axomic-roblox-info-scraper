@@ -16,36 +16,52 @@
                 </svg>
                 <span class="title">Axomic - Roblox Info Scraper</span>
             </div>
-            <div class="header-controls">
+            <div class="headercontrols">
                 <select id="themeselect" aria-label="theme selector">
                     <option value="theme-light">Light</option>
                     <option value="theme-dark">Dark</option>
                     <option value="theme-blue">Blue</option>
+                    <option value="theme-green">Green</option>
+                    <option value="theme-purple">Purple</option>
+                    <option value="theme-orange">Orange</option>
+                    <option value="theme-pink">Pink</option>
+                    <option value="theme-forest">Forest</option>
+                    <option value="theme-ocean">Ocean</option>
+                    <option value="theme-sunset">Sunset</option>
                 </select>
             </div>
         </header>
 
-        <section class="searchsection">
-            <div class="inputgroup">
-                <input type="text" id="usernameinput" placeholder="Enter Roblox username" autocomplete="off" />
-                <button id="scrapebtn">Scrape Info</button>
+        <nav class="tabs">
+            <button class="tabbtn active" data-tab="home">Home</button>
+            <button class="tabbtn" data-tab="info">Info</button>
+        </nav>
+
+        <section id="tabhome" class="tabcontent active">
+            <div class="searchsection">
+                <div class="inputgroup">
+                    <input type="text" id="usernameinput" placeholder="Enter Roblox username" autocomplete="off" />
+                    <button id="scrapebtn">Scrape Info</button>
+                </div>
+                <div id="statusmsg" class="statusmsg"></div>
             </div>
-            <div id="statusmsg" class="statusmsg"></div>
+
+            <section id="outputsection" class="outputsection hidden">
+                <div id="resultcontent" class="resultcontent"></div>
+            </section>
         </section>
 
-        <section id="outputsection" class="outputsection hidden">
-            <div id="resultcontent" class="resultcontent"></div>
-        </section>
-
-        <section id="creditsection" class="creditsection">
-            <div class="credittext">
-                This is a Free,Open-Sourced Roblox Info Scraper by Username.
-                It is made by Axom for multi purposes.
-                If you would like to modify the source, please consider giving credit to Axom.
-            </div>
-            <div class="socialbuttons">
-                <a href="https://youtube.com/@axos0022" target="_blank" rel="noopener" class="socialbtn youtube">YouTube</a>
-                <a href="https://discord.gg/QAhCXgaDZg" target="_blank" rel="noopener" class="socialbtn discord">Discord</a>
+        <section id="tabinfo" class="tabcontent">
+            <div class="infocontent">
+                <div class="credittext">
+                    This is a Free,Open-Sourced Roblox Info Scraper by Username.
+                    It is made by Axom for multi purposes.
+                    If you would like to modify the source, please consider giving credit to Axom.
+                </div>
+                <div class="socialbuttons">
+                    <a href="https://youtube.com/@axos0022" target="_blank" rel="noopener" class="socialbtn youtube">YouTube</a>
+                    <a href="https://discord.gg/QAhCXgaDZg" target="_blank" rel="noopener" class="socialbtn discord">Discord</a>
+                </div>
             </div>
         </section>
     </div>
