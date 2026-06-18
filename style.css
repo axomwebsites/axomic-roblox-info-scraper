@@ -20,7 +20,7 @@ body {
     box-shadow: 0 8px 30px rgba(0,0,0,0.12);
     padding: 24px 20px 40px;
     margin: 0 auto;
-    transition: background 0.3s, border-color 0.3s;
+    transition: background 0.3s, border-color 0.3s, color 0.3s;
 }
 header {
     display: flex;
@@ -28,7 +28,7 @@ header {
     align-items: center;
     flex-wrap: wrap;
     gap: 12px;
-    margin-bottom: 28px;
+    margin-bottom: 18px;
 }
 header .logo {
     display: flex;
@@ -47,7 +47,7 @@ header .logo {
     letter-spacing: -0.3px;
     line-height: 1.2;
 }
-.header-controls select {
+.headercontrols select {
     padding: 8px 14px;
     border-radius: 30px;
     border: 2px solid #ddd;
@@ -55,9 +55,9 @@ header .logo {
     font-size: 0.9rem;
     outline: none;
     cursor: pointer;
-    transition: border 0.2s;
+    transition: border 0.2s, background 0.2s, color 0.2s;
 }
-.header-controls select:focus {
+.headercontrols select:focus {
     border-color: #cc0000;
 }
 @media (max-width: 480px) {
@@ -73,8 +73,43 @@ header .logo {
         align-items: stretch;
     }
 }
+.tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #e9ecf0;
+}
+.tabbtn {
+    padding: 10px 24px;
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #777;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+.tabbtn:hover {
+    color: #cc0000;
+}
+.tabbtn.active {
+    color: #cc0000;
+    border-bottom-color: #cc0000;
+}
+.tabcontent {
+    display: none;
+    animation: fadein 0.25s;
+}
+.tabcontent.active {
+    display: block;
+}
+@keyframes fadein {
+    from { opacity: 0.3; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 .searchsection {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 .inputgroup {
     display: flex;
@@ -88,7 +123,7 @@ header .logo {
     border-radius: 60px;
     font-size: 1rem;
     outline: none;
-    transition: border 0.2s;
+    transition: border 0.2s, background 0.2s, color 0.2s;
     background: #fafafa;
 }
 #usernameinput:focus {
@@ -195,17 +230,18 @@ header .logo {
 .sectionbody .errortext {
     color: #cc0000;
 }
-.creditsection {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 2px solid #e9ecf0;
+.infocontent {
+    padding: 20px 10px;
     text-align: center;
 }
 .credittext {
     font-size: 0.95rem;
     color: #555;
-    line-height: 1.5;
-    margin-bottom: 16px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .socialbuttons {
     display: flex;
@@ -267,6 +303,7 @@ header .logo {
     margin-top: 20px;
     letter-spacing: 0.5px;
 }
+/* ===== THEMES ===== */
 .theme-dark {
     background: #1e1e1e;
 }
@@ -300,7 +337,7 @@ header .logo {
 .theme-dark .credittext {
     color: #aaa;
 }
-.theme-dark .header-controls select {
+.theme-dark .headercontrols select {
     background: #444;
     color: #eee;
     border-color: #666;
@@ -313,6 +350,19 @@ header .logo {
 .theme-dark #usernameinput:focus {
     border-color: #cc0000;
     background: #444;
+}
+.theme-dark .tabs {
+    border-bottom-color: #555;
+}
+.theme-dark .tabbtn {
+    color: #aaa;
+}
+.theme-dark .tabbtn.active {
+    color: #ff6666;
+    border-bottom-color: #ff6666;
+}
+.theme-dark .tabbtn:hover {
+    color: #ff6666;
 }
 .theme-blue {
     background: #d6eaf8;
@@ -345,7 +395,7 @@ header .logo {
 .theme-blue .credittext {
     color: #2c3e50;
 }
-.theme-blue .header-controls select {
+.theme-blue .headercontrols select {
     background: #d4e6f1;
     border-color: #a9cce3;
     color: #1a5276;
@@ -358,6 +408,394 @@ header .logo {
 .theme-blue #usernameinput:focus {
     border-color: #cc0000;
 }
+.theme-blue .tabs {
+    border-bottom-color: #a9cce3;
+}
+.theme-blue .tabbtn {
+    color: #2c3e50;
+}
+.theme-blue .tabbtn.active {
+    color: #cc0000;
+    border-bottom-color: #cc0000;
+}
+.theme-green {
+    background: #d5f5e3;
+}
+.theme-green .container {
+    background: #eafaf1;
+}
+.theme-green .title {
+    color: #1e8449;
+}
+.theme-green .resultcontent {
+    background: #d5f5e3;
+    border-color: #82e0aa;
+}
+.theme-green .sectionheader {
+    color: #1e8449;
+}
+.theme-green .sectionheader:hover {
+    color: #cc0000;
+}
+.theme-green .sectionwrap {
+    border-bottom-color: #82e0aa;
+}
+.theme-green .label {
+    color: #145a32;
+}
+.theme-green .statusmsg {
+    color: #145a32;
+}
+.theme-green .credittext {
+    color: #145a32;
+}
+.theme-green .headercontrols select {
+    background: #d5f5e3;
+    border-color: #82e0aa;
+    color: #1e8449;
+}
+.theme-green #usernameinput {
+    background: #d5f5e3;
+    border-color: #82e0aa;
+    color: #1e8449;
+}
+.theme-green #usernameinput:focus {
+    border-color: #cc0000;
+}
+.theme-green .tabs {
+    border-bottom-color: #82e0aa;
+}
+.theme-green .tabbtn {
+    color: #145a32;
+}
+.theme-green .tabbtn.active {
+    color: #cc0000;
+    border-bottom-color: #cc0000;
+}
+.theme-purple {
+    background: #e8d5f5;
+}
+.theme-purple .container {
+    background: #f4ecf7;
+}
+.theme-purple .title {
+    color: #6c3483;
+}
+.theme-purple .resultcontent {
+    background: #e8d5f5;
+    border-color: #c39bd3;
+}
+.theme-purple .sectionheader {
+    color: #6c3483;
+}
+.theme-purple .sectionheader:hover {
+    color: #cc0000;
+}
+.theme-purple .sectionwrap {
+    border-bottom-color: #c39bd3;
+}
+.theme-purple .label {
+    color: #4a235a;
+}
+.theme-purple .statusmsg {
+    color: #4a235a;
+}
+.theme-purple .credittext {
+    color: #4a235a;
+}
+.theme-purple .headercontrols select {
+    background: #e8d5f5;
+    border-color: #c39bd3;
+    color: #6c3483;
+}
+.theme-purple #usernameinput {
+    background: #e8d5f5;
+    border-color: #c39bd3;
+    color: #6c3483;
+}
+.theme-purple #usernameinput:focus {
+    border-color: #cc0000;
+}
+.theme-purple .tabs {
+    border-bottom-color: #c39bd3;
+}
+.theme-purple .tabbtn {
+    color: #4a235a;
+}
+.theme-purple .tabbtn.active {
+    color: #cc0000;
+    border-bottom-color: #cc0000;
+}
+.theme-orange {
+    background: #fdebd0;
+}
+.theme-orange .container {
+    background: #fef5e7;
+}
+.theme-orange .title {
+    color: #b9770e;
+}
+.theme-orange .resultcontent {
+    background: #fdebd0;
+    border-color: #f5b041;
+}
+.theme-orange .sectionheader {
+    color: #b9770e;
+}
+.theme-orange .sectionheader:hover {
+    color: #cc0000;
+}
+.theme-orange .sectionwrap {
+    border-bottom-color: #f5b041;
+}
+.theme-orange .label {
+    color: #7e5109;
+}
+.theme-orange .statusmsg {
+    color: #7e5109;
+}
+.theme-orange .credittext {
+    color: #7e5109;
+}
+.theme-orange .headercontrols select {
+    background: #fdebd0;
+    border-color: #f5b041;
+    color: #b9770e;
+}
+.theme-orange #usernameinput {
+    background: #fdebd0;
+    border-color: #f5b041;
+    color: #b9770e;
+}
+.theme-orange #usernameinput:focus {
+    border-color: #cc0000;
+}
+.theme-orange .tabs {
+    border-bottom-color: #f5b041;
+}
+.theme-orange .tabbtn {
+    color: #7e5109;
+}
+.theme-orange .tabbtn.active {
+    color: #cc0000;
+    border-bottom-color: #cc0000;
+}
+.theme-pink {
+    background: #fadbd8;
+}
+.theme-pink .container {
+    background: #fdedec;
+}
+.theme-pink .title {
+    color: #a93226;
+}
+.theme-pink .resultcontent {
+    background: #fadbd8;
+    border-color: #e6b0aa;
+}
+.theme-pink .sectionheader {
+    color: #a93226;
+}
+.theme-pink .sectionheader:hover {
+    color: #cc0000;
+}
+.theme-pink .sectionwrap {
+    border-bottom-color: #e6b0aa;
+}
+.theme-pink .label {
+    color: #78281f;
+}
+.theme-pink .statusmsg {
+    color: #78281f;
+}
+.theme-pink .credittext {
+    color: #78281f;
+}
+.theme-pink .headercontrols select {
+    background: #fadbd8;
+    border-color: #e6b0aa;
+    color: #a93226;
+}
+.theme-pink #usernameinput {
+    background: #fadbd8;
+    border-color: #e6b0aa;
+    color: #a93226;
+}
+.theme-pink #usernameinput:focus {
+    border-color: #cc0000;
+}
+.theme-pink .tabs {
+    border-bottom-color: #e6b0aa;
+}
+.theme-pink .tabbtn {
+    color: #78281f;
+}
+.theme-pink .tabbtn.active {
+    color: #cc0000;
+    border-bottom-color: #cc0000;
+}
+.theme-forest {
+    background: #d0e8d0;
+}
+.theme-forest .container {
+    background: #e2f0e2;
+}
+.theme-forest .title {
+    color: #2d6a2d;
+}
+.theme-forest .resultcontent {
+    background: #cfe2cf;
+    border-color: #9ac79a;
+}
+.theme-forest .sectionheader {
+    color: #2d6a2d;
+}
+.theme-forest .sectionheader:hover {
+    color: #cc0000;
+}
+.theme-forest .sectionwrap {
+    border-bottom-color: #9ac79a;
+}
+.theme-forest .label {
+    color: #1a4a1a;
+}
+.theme-forest .statusmsg {
+    color: #1a4a1a;
+}
+.theme-forest .credittext {
+    color: #1a4a1a;
+}
+.theme-forest .headercontrols select {
+    background: #cfe2cf;
+    border-color: #9ac79a;
+    color: #2d6a2d;
+}
+.theme-forest #usernameinput {
+    background: #cfe2cf;
+    border-color: #9ac79a;
+    color: #2d6a2d;
+}
+.theme-forest #usernameinput:focus {
+    border-color: #cc0000;
+}
+.theme-forest .tabs {
+    border-bottom-color: #9ac79a;
+}
+.theme-forest .tabbtn {
+    color: #1a4a1a;
+}
+.theme-forest .tabbtn.active {
+    color: #cc0000;
+    border-bottom-color: #cc0000;
+}
+.theme-ocean {
+    background: #c5dff0;
+}
+.theme-ocean .container {
+    background: #d8eaf5;
+}
+.theme-ocean .title {
+    color: #1b4f72;
+}
+.theme-ocean .resultcontent {
+    background: #c5dff0;
+    border-color: #95bcd6;
+}
+.theme-ocean .sectionheader {
+    color: #1b4f72;
+}
+.theme-ocean .sectionheader:hover {
+    color: #cc0000;
+}
+.theme-ocean .sectionwrap {
+    border-bottom-color: #95bcd6;
+}
+.theme-ocean .label {
+    color: #0f344b;
+}
+.theme-ocean .statusmsg {
+    color: #0f344b;
+}
+.theme-ocean .credittext {
+    color: #0f344b;
+}
+.theme-ocean .headercontrols select {
+    background: #c5dff0;
+    border-color: #95bcd6;
+    color: #1b4f72;
+}
+.theme-ocean #usernameinput {
+    background: #c5dff0;
+    border-color: #95bcd6;
+    color: #1b4f72;
+}
+.theme-ocean #usernameinput:focus {
+    border-color: #cc0000;
+}
+.theme-ocean .tabs {
+    border-bottom-color: #95bcd6;
+}
+.theme-ocean .tabbtn {
+    color: #0f344b;
+}
+.theme-ocean .tabbtn.active {
+    color: #cc0000;
+    border-bottom-color: #cc0000;
+}
+.theme-sunset {
+    background: #fce4d6;
+}
+.theme-sunset .container {
+    background: #fdf0e6;
+}
+.theme-sunset .title {
+    color: #b85a1a;
+}
+.theme-sunset .resultcontent {
+    background: #fce4d6;
+    border-color: #f0b68a;
+}
+.theme-sunset .sectionheader {
+    color: #b85a1a;
+}
+.theme-sunset .sectionheader:hover {
+    color: #cc0000;
+}
+.theme-sunset .sectionwrap {
+    border-bottom-color: #f0b68a;
+}
+.theme-sunset .label {
+    color: #7a3b0e;
+}
+.theme-sunset .statusmsg {
+    color: #7a3b0e;
+}
+.theme-sunset .credittext {
+    color: #7a3b0e;
+}
+.theme-sunset .headercontrols select {
+    background: #fce4d6;
+    border-color: #f0b68a;
+    color: #b85a1a;
+}
+.theme-sunset #usernameinput {
+    background: #fce4d6;
+    border-color: #f0b68a;
+    color: #b85a1a;
+}
+.theme-sunset #usernameinput:focus {
+    border-color: #cc0000;
+}
+.theme-sunset .tabs {
+    border-bottom-color: #f0b68a;
+}
+.theme-sunset .tabbtn {
+    color: #7a3b0e;
+}
+.theme-sunset .tabbtn.active {
+    color: #cc0000;
+    border-bottom-color: #cc0000;
+}
 @media (max-width: 480px) {
     .socialbuttons {
         flex-direction: column;
@@ -365,5 +803,9 @@ header .logo {
     }
     .socialbtn {
         width: 80%;
+    }
+    .tabbtn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
     }
 }
