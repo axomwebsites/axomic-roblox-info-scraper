@@ -589,7 +589,24 @@ function displayalldata(data, username) {
     document.getElementById('outputsection').classList.remove('hidden');
 }
 
-document.getElementById('scrapebtn').addEventListener('click', function() {
+const tabbtns = document.querySelectorAll('.tabbtn');
+const tabcontents = {
+    home: document.getElementById('tabhome'),
+    info: document.getElementById('tabinfo')
+};
+
+tabbtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        tabbtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const tab = this.dataset.tab;
+        Object.keys(tabcontents).forEach(key => {
+            tabcontents[key].classList.toggle('active', key === tab);
+        });
+    });
+});
+
+ document.getElementById('scrapebtn').addEventListener('click', function() {
     const username = document.getElementById('usernameinput').value.trim();
     if (!username) {
         document.getElementById('statusmsg').textContent = 'please enter a username';
@@ -606,6 +623,5 @@ document.getElementById('usernameinput').addEventListener('keypress', function(e
 });
 
 document.getElementById('themeselect').addEventListener('change', function() {
-    const theme = this.value;
-    document.body.className = theme;
+    document.body.className = this.value;
 });
